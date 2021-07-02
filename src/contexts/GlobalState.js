@@ -8,7 +8,9 @@ const { Provider } = store;
 const StoreProvider = ({ children }) => {
   const [state, dispatch] = useReducer((state, newState) => {
     const currentState = { ...state };
-    currentState[newState.name] = newState.value
+    if (typeof newState.name === 'string' && newState.value !== undefined)
+      currentState[newState.name] = newState.value
+    else throw new Error('É necessário name e value para criar ou atualizar um estado global')
     return currentState;
   }, initialState)
   return <Provider value={{ state, dispatch }}>{children}</Provider>

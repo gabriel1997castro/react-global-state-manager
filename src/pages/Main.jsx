@@ -7,7 +7,7 @@ export default function Main() {
   const { state } = useContext(store)
   return (
     <div>
-      {!state.user ? <Login stateName="state" /> : <Home stateName="state" />}
+      {!state.user ? <Login /> : <Home />}
     </div>
   )
 }
