@@ -1,8 +1,18 @@
-import { Button, TextField } from '@material-ui/core';
+import { Button, Grid, makeStyles, Paper, TextField } from '@material-ui/core';
 import React, { useContext, useState } from 'react'
 import { store } from '../contexts/GlobalState';
 
+const useStyles = makeStyles({
+  paper: {
+    padding: 20,
+    height: '70vh',
+    width: 480,
+    margin: '20px auto'
+  },
+})
+
 export default function Home({ color }) {
+  const classes = useStyles();
   const { state, dispatch } = useContext(store)
   const { user } = state;
   const [edit, setEdit] = useState(false)
@@ -27,16 +37,18 @@ export default function Home({ color }) {
   }
 
   return (
-    <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
-      <div style={{ maxWidth: '300px' }}>
+    <Grid align="center">
+      <Paper elevation={10} className={classes.paper}>
         <h1>Olá {user.name}</h1>
-        {
-          edit && <TextField label='Nome' placeholder="Digite o usuário" fullWidth required value={name} onChange={(e) => setName(e.target.value)} /> 
-        }
+        <Grid style={{ minHeight: '50px' }}>
+          {
+            edit && <TextField label='Nome' placeholder="Digite o usuário" fullWidth required value={name} onChange={(e) => setName(e.target.value)} />
+          }
+        </Grid>
 
         <Button color="primary" variant="contained" onClick={onEdit}>{!edit ? 'Editar nome' : 'Salvar'}</Button>
         <Button color="secondary" variant="contained" onClick={() => dispatch({ name: 'user', value: null })}>Sair</Button>
-      </div>
-    </div>
+      </Paper>
+    </Grid>
   )
 }
