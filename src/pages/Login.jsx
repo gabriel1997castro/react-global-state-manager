@@ -2,7 +2,8 @@ import React, { useContext } from 'react'
 import { store } from '../contexts/GlobalState'
 
 export default function Login() {
-  const { dispatch } = useContext(store);
+  const { dispatch, state } = useContext(store);
+  const { user } = state;
 
   const userObject = {
     name: 'Gabriel Castro',
