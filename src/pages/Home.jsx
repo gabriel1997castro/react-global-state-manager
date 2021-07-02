@@ -7,7 +7,7 @@ export default function Home({ color }) {
 
   return (
     <div>
-      <h1>Hello from home {user.name}</h1>
+      <h1>Olá {user.name}</h1>
       <button onClick={() => dispatch({ name: 'user', value: null })}>Sair</button>
     </div>
   )
