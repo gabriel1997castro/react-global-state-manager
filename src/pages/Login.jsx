@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 })
 
 export default function Login() {
-  const { dispatch, state } = useContext(store);
+  const { dispatch } = useContext(store);
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [password, setPassword] = useState('');
