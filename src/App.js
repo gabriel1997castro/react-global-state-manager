@@ -1,6 +1,6 @@
 import './App.css';
 import { StoreProvider } from './contexts/GlobalState';
-import Main from './pages/Main';
+import Main from './Main';
 
 
 function App() {

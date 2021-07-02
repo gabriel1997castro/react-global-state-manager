@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import { store } from '../contexts/GlobalState'
-import Home from './Home'
-import Login from './Login'
+import { store } from './contexts/GlobalState'
+import Home from './pages/Home'
+import Login from './pages/Login'
 
 export default function Main() {
   const { state } = useContext(store)
