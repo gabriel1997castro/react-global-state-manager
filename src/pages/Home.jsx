@@ -1,14 +1,14 @@
-import React, { useContext, useState } from 'react'
-import { store } from '../contexts/Store'
+import React, { useContext } from 'react'
+import { store } from '../contexts/GlobalState';
 
-export default function Home() {
+export default function Home({ color }) {
   const { state, dispatch } = useContext(store)
   const { user } = state;
 
   return (
     <div>
       <h1>Hello from home {user.name}</h1>
-      <button onClick={() => dispatch({ type: 'logout' })}>Sair</button>
+      <button onClick={() => dispatch({ name: 'user', value: null })}>Sair</button>
     </div>
   )
 }

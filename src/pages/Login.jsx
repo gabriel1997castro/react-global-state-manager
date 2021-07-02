@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { store } from '../contexts/Store'
+import { store } from '../contexts/GlobalState'
 
 export default function Login() {
   const { dispatch } = useContext(store);
@@ -12,7 +12,13 @@ export default function Login() {
   return (
     <div>
       Hello from Login
-      <button onClick={() => dispatch({ type: 'set-user', payload: userObject })}>login</button>
+      <button
+        onClick={() => {
+          dispatch({ name: 'user', value: userObject })
+        }}
+      >
+        Login
+      </button>
     </div>
   )
 }
